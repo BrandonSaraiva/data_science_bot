@@ -1,5 +1,5 @@
 # Objetivo
-O objetivo desse projeto foi automatizar grande parte do processo da analise de dados. 
+O objetivo desse projeto foi automatizar grande parte do processo da analise de dados. Fiz esse trabalho dessa forma porque amo mecher com automação, por isso decidi não só baixar os dados utilizando webscraping, mas todo o caminho da analise de dados.
 # Bibliotecas utilizadas
 - threading
 - time
@@ -15,7 +15,9 @@ O objetivo desse projeto foi automatizar grande parte do processo da analise de 
 - datetime
 - matplotlib
 # Passo a Passo
-Bom, primeiro eu faço o bot pegar as configurações do usuário do chrome para ele poder acessar alguns recursos que precisam de login, por exemplo o jupyer notebook. Depois ele abre 2 abas, uma vai entrar no site https://peach.self.team/ para poder gerar os slides (esse site é uma IA que gera slides com base nas informações que você der a ela) e a outra aba irá baixar o banco de dados, criar um dataframe e criar os gráficos. Na parte dos slides eu forneço informaçao como por exemplo o titulo do slide, as informações que vai conter, e o objetivo do slide. Na outra aba, ele entra no site https://asloterias.com.br/download-todos-resultados-lotofacil, scrola pra baixo até achar o botão de download do arquivo .csv, enquanto isso ocorre, um áudio explicando o que o bot está fazendo está sendo tocado, o projeto inteiro tem 9 audios durante o processo, explicando o passo a passo do que está sendo feito. Depois dele baixar o csv, ele irá abrir 1 jupyter notebook no google colab, apertando a tecla *esc* ele irá digitar o código, esse código ele digita atraves da funçao keyboard.write, eu coloquei os codigos a serem digitados dentro dessa funçao e ele executa. Depois de voce subir o csv e colocar o caminho no código ele irá criar um dataframe utilizando a biblioteca pandas,com esse dataframe ele irá criar um banco de dado utilizando a biblioteca sqlite3. Depois de criar o banco de dados começa a parte de analisar os dados, o primeiro gráfico q ele cria é mostrando as 15 bolas que mais sairam na história da lotofácil, eis o código para servir de exemplo:
+  Bom, primeiro eu faço o bot pegar as configurações do usuário do chrome para ele poder acessar alguns recursos que precisam de login, por exemplo o jupyer notebook. Depois ele abre 2 abas, uma vai entrar no site https://peach.self.team/ para poder gerar os slides (esse site é uma IA que gera slides com base nas informações que você der a ela) e a outra aba irá baixar o banco de dados, criar um dataframe e criar os gráficos. Na parte dos slides eu forneço informaçao como por exemplo o titulo do slide, as informações que vai conter, e o objetivo do slide. Na outra aba, ele entra no site https://asloterias.com.br/download-todos-resultados-lotofacil, scrola pra baixo até achar o botão de download do arquivo .csv, enquanto isso ocorre, um áudio explicando o que o bot está fazendo está sendo tocado, o projeto inteiro tem 9 audios durante o processo, explicando o passo a passo do que está sendo feito. 
+  Depois dele baixar o csv, ele irá abrir 1 jupyter notebook no google colab, apertando a tecla *esc* ele irá digitar o código, esse código ele digita atraves da funçao keyboard.write, eu coloquei os codigos a serem digitados dentro dessa funçao e ele executa. Depois de voce subir o csv e colocar o caminho no código ele irá criar um dataframe utilizando a biblioteca pandas,com esse dataframe ele irá criar um banco de dado utilizando a biblioteca sqlite3. 
+  Depois de criar o banco de dados começa a parte de **analisar** os dados, o primeiro gráfico q ele cria é mostrando as 15 bolas que mais sairam na história da lotofácil, eis o código para servir de exemplo:
 
 ```
 sql_query = f'''
@@ -78,3 +80,17 @@ Depois disso, ele irá criar um código que mostra as 3 bolas que mais saem cada
 E por último, ele produz um código que pega o dia atual, e depois vê quais as bolas que mais sairam nesse mesmo dia no passado, retornando o resultado:
 
 ![image](https://github.com/BrandonSaraiva/data_science_bot/assets/90096835/446b1585-d5d0-4618-8fba-3db70a5a4e6f)
+
+Lembrando que durante todo esse processo ele está narrando as ações.
+
+**Slides**
+
+Após apertar esc, ele irá fechar o navegador e você irá abrir a outra aba que ele criou logo no início, lá o slide já estará pronto para ser baixado, apertando a seta *right* ele irá executar os comandos de baixar o slide, abrir ele e executar. No áudio ele explica que a IA que gerou os slides ainda está "aprendendo", é uma versão grátis então os slides não irão ser de uma qualidade muito boa, ela formata o texto de uma forma bem simples, coloca imagens que muitas vezes não tem haver com o texto e coloca algumas informações esquisitas kkk, o melhor gerador de slides atual é uma extensão do google chamada Slides.Ai.io, antes esse projeto era utilizando essa ferramenta, os slides ficavam incríveis, mas por ser uma ferramenta paga não deu para eu dar continuidade nesse projeto. 
+
+**Apresentação**
+
+A apresentação dos slides ficou comigo mesmo, depois do bot fazer maior parte do trabalho eu fico com a parte final de mostrar os slides que foram gerados e falar algumas informações a mais sobre a loteria lotofácil.
+
+**Conclusão**
+
+Existem diversas alterações possíveis nesse projeto para deixar ele mais otimizado, mais adaptável a outras análises e bancos de dados, o objetivo principal de eu ter escolhido essa forma de fazer foi para desenvolver mais minhas skills em automação e me ajudar a ter idéias para projetos futuros.
