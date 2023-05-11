@@ -85,3 +85,6 @@ Após a geração dos slides pelo bot, fica a meu encargo apresentá-los e forne
 # Conclusão
 
 Este projeto pode ser otimizado de diversas maneiras para torná-lo mais adaptável a outras análises e bancos de dados. Escolhi essa forma de trabalhar para aprimorar minhas habilidades em automação e obter ideias para futuros projetos.
+
+# Vídeo para ver o bot funcionando:
+
