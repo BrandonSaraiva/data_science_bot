@@ -71,3 +71,10 @@ O Gráfico que ele gera:
 
 ![image](https://github.com/BrandonSaraiva/data_science_bot/assets/90096835/d4244f45-b7a0-4afa-ba37-d1561e37cb74)
 
+Depois disso, ele irá criar um código que mostra as 3 bolas que mais saem cada mes, o resultado é esse:
+
+![image](https://github.com/BrandonSaraiva/data_science_bot/assets/90096835/18cdfd1a-fdce-4241-96e0-2f2f2efd7d51)
+
+E por último, ele produz um código que pega o dia atual, e depois vê quais as bolas que mais sairam nesse mesmo dia no passado, retornando o resultado:
+
+![image](https://github.com/BrandonSaraiva/data_science_bot/assets/90096835/446b1585-d5d0-4618-8fba-3db70a5a4e6f)
