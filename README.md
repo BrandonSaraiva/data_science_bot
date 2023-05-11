@@ -91,6 +91,6 @@ Após apertar esc, ele irá fechar o navegador e você irá abrir a outra aba qu
 
 A apresentação dos slides ficou comigo mesmo, depois do bot fazer maior parte do trabalho eu fico com a parte final de mostrar os slides que foram gerados e falar algumas informações a mais sobre a loteria lotofácil.
 
-**Conclusão**
+# Conclusão
 
 Existem diversas alterações possíveis nesse projeto para deixar ele mais otimizado, mais adaptável a outras análises e bancos de dados, o objetivo principal de eu ter escolhido essa forma de fazer foi para desenvolver mais minhas skills em automação e me ajudar a ter idéias para projetos futuros.
