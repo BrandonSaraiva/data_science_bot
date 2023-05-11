@@ -1,23 +1,14 @@
-# Objetivo
-O objetivo desse projeto foi automatizar grande parte do processo da analise de dados. Fiz esse trabalho dessa forma porque amo mecher com automação, por isso decidi não só baixar os dados utilizando webscraping, mas todo o caminho da analise de dados.
-# Bibliotecas utilizadas
-- threading
-- time
-- pyautogui
-- keyboard
-- pygame
-- os
-- getpass
-- selenium
-- pandas
-- sqlite3
-- calendar
-- datetime
-- matplotlib
+# Projeto Automação da Análise de Dados
+Este projeto tem como objetivo automatizar grande parte do processo da análise de dados. Foram utilizadas diversas bibliotecas, incluindo threading, time, pyautogui, keyboard, pygame, os, getpass, selenium, pandas, sqlite3, calendar e matplotlib.
+
 # Passo a Passo
-  Bom, primeiro eu faço o bot pegar as configurações do usuário do chrome para ele poder acessar alguns recursos que precisam de login, por exemplo o jupyer notebook. Depois ele abre 2 abas, uma vai entrar no site https://peach.self.team/ para poder gerar os slides (esse site é uma IA que gera slides com base nas informações que você der a ela) e a outra aba irá baixar o banco de dados, criar um dataframe e criar os gráficos. Na parte dos slides eu forneço informaçao como por exemplo o titulo do slide, as informações que vai conter, e o objetivo do slide. Na outra aba, ele entra no site https://asloterias.com.br/download-todos-resultados-lotofacil, scrola pra baixo até achar o botão de download do arquivo .csv, enquanto isso ocorre, um áudio explicando o que o bot está fazendo está sendo tocado, o projeto inteiro tem 9 audios durante o processo, explicando o passo a passo do que está sendo feito. 
-  Depois dele baixar o csv, ele irá abrir 1 jupyter notebook no google colab, apertando a tecla *esc* ele irá digitar o código, esse código ele digita atraves da funçao keyboard.write, eu coloquei os codigos a serem digitados dentro dessa funçao e ele executa. Depois de voce subir o csv e colocar o caminho no código ele irá criar um dataframe utilizando a biblioteca pandas,com esse dataframe ele irá criar um banco de dado utilizando a biblioteca sqlite3. 
-  Depois de criar o banco de dados começa a parte de **analisar** os dados, o primeiro gráfico q ele cria é mostrando as 15 bolas que mais sairam na história da lotofácil, eis o código para servir de exemplo:
+O bot começa pegando as configurações do usuário do Chrome para acessar recursos que precisam de login, como o Jupyter Notebook. Em seguida, ele abre duas abas. Uma acessa o site https://peach.self.team/ para gerar slides com base nas informações fornecidas, enquanto a outra aba faz o download do banco de dados, cria um dataframe e cria gráficos.
+
+Na parte dos slides, são fornecidas informações como o título do slide, as informações que ele deve conter e seu objetivo. Na outra aba, o bot acessa o site https://asloterias.com.br/download-todos-resultados-lotofacil, faz scroll até encontrar o botão de download do arquivo .csv e, durante esse processo, um áudio é tocado explicando cada passo do que está sendo feito.
+
+Após baixar o csv, o bot abre um notebook no Google Colab e digita o código necessário utilizando a biblioteca keyboard.write. O usuário deve inserir o caminho do arquivo csv no código para criar um dataframe com a biblioteca pandas. Em seguida, o bot cria um banco de dados utilizando a biblioteca sqlite3.
+
+A partir daí, o bot analisa os dados e cria gráficos. O primeiro gráfico mostra as 15 bolas que mais saíram na história da Lotofácil. Para criar esse gráfico, o bot executa o seguinte código:
 
 ```
 sql_query = f'''
@@ -85,12 +76,12 @@ Lembrando que durante todo esse processo ele está narrando as ações.
 
 **Slides**
 
-Após apertar esc, ele irá fechar o navegador e você irá abrir a outra aba que ele criou logo no início, lá o slide já estará pronto para ser baixado, apertando a seta *right* ele irá executar os comandos de baixar o slide, abrir ele e executar. No áudio ele explica que a IA que gerou os slides ainda está "aprendendo", é uma versão grátis então os slides não irão ser de uma qualidade muito boa, ela formata o texto de uma forma bem simples, coloca imagens que muitas vezes não tem haver com o texto e coloca algumas informações esquisitas kkk, o melhor gerador de slides atual é uma extensão do google chamada Slides.Ai.io, antes esse projeto era utilizando essa ferramenta, os slides ficavam incríveis, mas por ser uma ferramenta paga não deu para eu dar continuidade nesse projeto. 
+Depois de pressionar "Esc", o navegador será fechado e uma nova aba será aberta, onde o slide estará pronto para ser baixado. Ao pressionar a seta para a direita, os comandos para baixar, abrir e executar o slide serão executados automaticamente. No áudio, é explicado que a IA responsável por gerar os slides ainda está "aprendendo" e que esta é uma versão gratuita. Como resultado, os slides podem não ter uma qualidade excelente e a formatação do texto pode ser bastante simples. Além disso, podem ser adicionadas imagens que não estejam relacionadas com o conteúdo e informações curiosas e irrelevantes. Antes, este projeto utilizava a extensão paga do Google chamada Slides.Ai.io, que produzia slides incríveis. Infelizmente, devido ao fato de ser uma ferramenta paga, não foi possível continuar utilizando-a.
 
 **Apresentação**
 
-A apresentação dos slides ficou comigo mesmo, depois do bot fazer maior parte do trabalho eu fico com a parte final de mostrar os slides que foram gerados e falar algumas informações a mais sobre a loteria lotofácil.
+Após a geração dos slides pelo bot, fica a meu encargo apresentá-los e fornecer informações adicionais sobre a loteria lotofácil.
 
 # Conclusão
 
-Existem diversas alterações possíveis nesse projeto para deixar ele mais otimizado, mais adaptável a outras análises e bancos de dados, o objetivo principal de eu ter escolhido essa forma de fazer foi para desenvolver mais minhas skills em automação e me ajudar a ter idéias para projetos futuros.
+Este projeto pode ser otimizado de diversas maneiras para torná-lo mais adaptável a outras análises e bancos de dados. Escolhi essa forma de trabalhar para aprimorar minhas habilidades em automação e obter ideias para futuros projetos.
