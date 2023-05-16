@@ -90,5 +90,8 @@ Este projeto pode ser otimizado de diversas maneiras para torná-lo mais adaptá
 
 # Vídeo para ver o bot funcionando:
 
+(Desculpa pela qualidade horrivel, motorola causa isso mesmo)
 
-https://drive.google.com/file/d/14DQf63hvocHKhdQBuuV8w09UfFmcINOE/view
+
+https://www.youtube.com/watch?v=OkfbAzvuI5o
+
