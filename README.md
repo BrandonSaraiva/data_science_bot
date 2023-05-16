@@ -74,6 +74,8 @@ E por último, ele produz um código que pega o dia atual, e depois vê quais as
 
 Lembrando que durante todo esse processo ele está narrando as ações.
 
+Eu adicionei uma função que quando vc aperta P ele para o codigo, caso algo de errado no processo.
+
 **Slides**
 
 Depois de pressionar "Esc", o navegador será fechado e uma nova aba será aberta, onde o slide estará pronto para ser baixado. Ao pressionar a seta para a direita, os comandos para baixar, abrir e executar o slide serão executados automaticamente. No áudio, é explicado que a IA responsável por gerar os slides ainda está "aprendendo" e que esta é uma versão gratuita. Como resultado, os slides podem não ter uma qualidade excelente e a formatação do texto pode ser bastante simples. Além disso, podem ser adicionadas imagens que não estejam relacionadas com o conteúdo e informações curiosas e irrelevantes. Antes, este projeto utilizava a extensão paga do Google chamada Slides.Ai.io, que produzia slides incríveis. Infelizmente, devido ao fato de ser uma ferramenta paga, não foi possível continuar utilizando-a.
