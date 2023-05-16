@@ -90,3 +90,5 @@ Este projeto pode ser otimizado de diversas maneiras para torná-lo mais adaptá
 
 # Vídeo para ver o bot funcionando:
 
+
+https://drive.google.com/file/d/14DQf63hvocHKhdQBuuV8w09UfFmcINOE/view
