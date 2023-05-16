@@ -9,5 +9,5 @@ if __name__ == '__main__':
     thread = threading.Thread(target=slides)
     thread.start()
     scraping()
-
+ 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
