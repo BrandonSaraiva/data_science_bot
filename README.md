@@ -1,33 +1,33 @@
-# Projeto Automação da Análise de Dados
-Este projeto tem como objetivo automatizar grande parte do processo da análise de dados. Foram utilizadas diversas bibliotecas, incluindo threading, time, pyautogui, keyboard, pygame, os, getpass, selenium, pandas, sqlite3, calendar e matplotlib.
+# Data Analysis Automation Project
+This project aims to automate a large part of the data analysis process. Several libraries were used, including threading, time, pyautogui, keyboard, pygame, os, getpass, selenium, pandas, sqlite3, calendar and matplotlib.
 
-# Passo a Passo
-O bot começa pegando as configurações do usuário do Chrome para acessar recursos que precisam de login, como o Jupyter Notebook. Em seguida, ele abre duas abas. Uma acessa o site https://peach.self.team/ para gerar slides com base nas informações fornecidas, enquanto a outra aba faz o download do banco de dados, cria um dataframe e cria gráficos.
+# Step by step
+The bot starts by grabbing the user's Chrome settings to access resources that require a login, such as Jupyter Notebook. Then it opens two tabs. One accesses the website https://peach.self.team/ to generate slides based on the information provided, while the other tab downloads the database, creates a dataframe and creates graphs.
 
-Na parte dos slides, são fornecidas informações como o título do slide, as informações que ele deve conter e seu objetivo. Na outra aba, o bot acessa o site https://asloterias.com.br/download-todos-resultados-lotofacil, faz scroll até encontrar o botão de download do arquivo .csv e, durante esse processo, um áudio é tocado explicando cada passo do que está sendo feito.
+In the slides section, information such as the title of the slide, the information it should contain and its objective is provided. In the other tab, the bot accesses the website https://asloterias.com.br/download-todos-resultados-lotofacil, scrolls until it finds the .csv file download button and, during this process, an audio is played explaining every step of what is being done.
 
-Após baixar o csv, o bot abre um notebook no Google Colab e digita o código necessário utilizando a biblioteca keyboard.write. O usuário deve inserir o caminho do arquivo csv no código para criar um dataframe com a biblioteca pandas. Em seguida, o bot cria um banco de dados utilizando a biblioteca sqlite3.
+After downloading the csv, the bot opens a notebook in Google Colab and types the necessary code using the keyboard.write library. The user must enter the csv file path in the code to create a dataframe with the pandas library. Then, the bot creates a database using the sqlite3 library.
 
-A partir daí, o bot analisa os dados e cria gráficos. O primeiro gráfico mostra as 15 bolas que mais saíram na história da Lotofácil. Para criar esse gráfico, o bot executa o seguinte código:
+From there, the bot analyzes the data and creates graphs. The first graph shows the 15 balls that dropped the most in the history of Lotofácil. To create this chart, the bot runs the following code:
 
 ```
 sql_query = f'''
 SELECT ball, COUNT(ball) as count
-FROM (SELECT Bola_1 as ball FROM {nome_tabela} UNION ALL
-SELECT Bola_2 as ball FROM {nome_tabela} UNION ALL
-SELECT Bola_3 as ball FROM {nome_tabela} UNION ALL
-SELECT Bola_4 as ball FROM {nome_tabela} UNION ALL
-SELECT Bola_5 as ball FROM {nome_tabela} UNION ALL
-SELECT Bola_6 as ball FROM {nome_tabela} UNION ALL
-SELECT Bola_7 as ball FROM {nome_tabela} UNION ALL
-SELECT Bola_8 as ball FROM {nome_tabela} UNION ALL
-SELECT Bola_9 as ball FROM {nome_tabela} UNION ALL
-SELECT Bola_10 as ball FROM {nome_tabela} UNION ALL
-SELECT Bola_11 as ball FROM {nome_tabela} UNION ALL
-SELECT Bola_12 as ball FROM {nome_tabela} UNION ALL
-SELECT Bola_13 as ball FROM {nome_tabela} UNION ALL
-SELECT Bola_14 as ball FROM {nome_tabela} UNION ALL
-SELECT Bola_15 as ball FROM {nome_tabela})
+FROM (SELECT Bola_1 as ball FROM {table_name} UNION ALL
+SELECT Bola_2 as ball FROM {table_name} UNION ALL
+SELECT Bola_3 as ball FROM {table_name} UNION ALL
+SELECT Bola_4 as ball FROM {table_name} UNION ALL
+SELECT Bola_5 as ball FROM {table_name} UNION ALL
+SELECT Bola_6 as ball FROM {table_name} UNION ALL
+SELECT Bola_7 as ball FROM {table_name} UNION ALL
+SELECT Bola_8 as ball FROM {table_name} UNION ALL
+SELECT Bola_9 as ball FROM {table_name} UNION ALL
+SELECT Bola_10 as ball FROM {table_name} UNION ALL
+SELECT Bola_11 as ball FROM {table_name} UNION ALL
+SELECT Bola_12 as ball FROM {table_name} UNION ALL
+SELECT Bola_13 as ball FROM {table_name} UNION ALL
+SELECT Bola_14 as ball FROM {table_name} UNION ALL
+SELECT Bola_15 as ball FROM {table_name})
 
 GROUP BY ball
 ORDER BY count DESC
@@ -38,60 +38,52 @@ result = conn.execute(sql_query).fetchall()
 
 fig, ax = plt.subplots(figsize=(12, 5))
 
-# Define os rótulos do eixo y como "Ball 1", "Ball 2", etc.
+# Sets y-axis labels to "Ball 1", "Ball 2", etc.
 y_labels = [f"Ball {row[0]}" for row in result][::-1]
 
-# Define os valores do eixo x como as contagens de cada bola
+# Sets the x-axis values to the counts of each ball
 x_values = [row[1] for row in result][::-1]
 
-# Define as cores de cada barra como uma lista de tuplas RGBA
+# Set the colors of each bar as a list of RGBA tuples
 bar_colors = [(0, 0, 1, i/18 + 0.2) for i in range(15)]
 
-# Plota o gráfico de barras horizontal
+# Plot the horizontal bar chart
 ax.barh(y_labels, x_values, color=bar_colors)
 
 
-ax.set_xlabel('Numero de vezes que saiu')
-ax.set_ylabel('Numero da bola')
-ax.set_title('Top 15 bolas que mais sairam na história da LotoFácil')
+ax.set_xlabel('Number of times left')
+ax.set_ylabel('Ball number')
+ax.set_title('Top 15 balls that came out the most in the history of LotoFácil')
 
 # Remove white space in the chart
 plt.tight_layout()
 ```
 
-O Gráfico que ele gera:
+The graph it generates:
 
 
 ![image](https://github.com/BrandonSaraiva/data_science_bot/assets/90096835/d4244f45-b7a0-4afa-ba37-d1561e37cb74)
 
-Depois disso, ele irá criar um código que mostra as 3 bolas que mais saem cada mes, o resultado é esse:
+After that, it will create a code that shows the 3 balls that come out the most each month, the result is this:
 
 ![image](https://github.com/BrandonSaraiva/data_science_bot/assets/90096835/18cdfd1a-fdce-4241-96e0-2f2f2efd7d51)
 
-E por último, ele produz um código que pega o dia atual, e depois vê quais as bolas que mais sairam nesse mesmo dia no passado, retornando o resultado:
+And finally, it produces a code that takes the current day, and then sees which balls dropped the most on that same day in the past, returning the result:
 
 ![image](https://github.com/BrandonSaraiva/data_science_bot/assets/90096835/446b1585-d5d0-4618-8fba-3db70a5a4e6f)
 
-Lembrando que durante todo esse processo ele está narrando as ações.
+Remembering that throughout this process he is narrating the actions.
 
-Eu adicionei uma função que quando vc aperta P ele para o codigo, caso algo de errado no processo.
+I added a function that when you press P it stops the code, in case something goes wrong in the process.
 
 **Slides**
 
-Depois de pressionar "Esc", o navegador será fechado e uma nova aba será aberta, onde o slide estará pronto para ser baixado. Ao pressionar a seta para a direita, os comandos para baixar, abrir e executar o slide serão executados automaticamente. No áudio, é explicado que a IA responsável por gerar os slides ainda está "aprendendo" e que esta é uma versão gratuita. Como resultado, os slides podem não ter uma qualidade excelente e a formatação do texto pode ser bastante simples. Além disso, podem ser adicionadas imagens que não estejam relacionadas com o conteúdo e informações curiosas e irrelevantes. Antes, este projeto utilizava a extensão paga do Google chamada Slides.Ai.io, que produzia slides incríveis. Infelizmente, devido ao fato de ser uma ferramenta paga, não foi possível continuar utilizando-a.
+After pressing "Esc", the browser will close and a new tab will open, where the slide will be ready to be downloaded. When you press the right arrow, the commands to download, open and run the slide will be executed automatically. In the audio, it is explained that the AI responsible for generating the slides is still "learning" and that this is a free version. As a result, slides may not be of excellent quality and text formatting may be quite simple. Additionally, images that are not related to the content and curious and irrelevant information can be added. Previously, this project used the paid Google extension called Slides.Ai.io, which produced amazing slides. Unfortunately, due to the fact that it is a paid tool, it was not possible to continue using it.
 
-**Apresentação**
+**Presentation**
 
-Após a geração dos slides pelo bot, fica a meu encargo apresentá-los e fornecer informações adicionais sobre a loteria lotofácil.
+After the slides are generated by the bot, it is my responsibility to present them and provide additional information about the lotofácil lottery.
 
-# Conclusão
+# Conclusion
 
-Este projeto pode ser otimizado de diversas maneiras para torná-lo mais adaptável a outras análises e bancos de dados. Escolhi essa forma de trabalhar para aprimorar minhas habilidades em automação e obter ideias para futuros projetos.
-
-# Vídeo para ver o bot funcionando:
-
-(Desculpa pela qualidade horrivel, motorola causa isso mesmo)
-
-
-https://www.youtube.com/watch?v=OkfbAzvuI5o
-
+This project can be optimized in several ways to make it more adaptable to other applications.
